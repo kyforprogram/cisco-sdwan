@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cisco SD-WAN を構成するvManage, vSmart, vBond, Edgeルーターの各コンポーネントの役割と連携について詳しく解説します。">
+    <meta property="og:title" content="主要コンポーネント - Cisco SD-WAN 解説" />
+    <meta property="og:description" content="Cisco SD-WAN を構成するvManage, vSmart, vBond, Edgeルーターの各コンポーネントの役割と連携について詳しく解説します。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="[サイトのURL]/components.html" />
+    <meta property="og:image" content="[サイトのOGP画像URL]" />
+    <title>主要コンポーネント - Cisco SD-WAN 解説</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cisco SD-WAN: 次世代ネットワークの全貌</h1>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">トップ</a></li>
+                <li><a href="introduction.html">はじめに</a></li>
+                <li><a href="what-is-sdwan.html">SD-WANとは</a></li>
+                <li><a href="components.html" class="active" aria-current="page">主要コンポーネント</a></li>
+                <li><a href="mechanism.html">仕組み</a></li>
+                <li><a href="benefits.html">メリット</a></li>
+                <li><a href="use-cases.html">ユースケース</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="index.html">トップ</a></li>
+                <li><span>主要コンポーネント</span></li>
+            </ul>
+        </div>
+        <section id="components">
+            <h2>主要コンポーネント：オーケストラを構成する楽団員たち</h2>
+            <p>Cisco SD-WANは、役割の異なる複数のコンポーネントが協調して動作することで、柔軟でインテリジェントなネットワークを実現します。ここでは、その主要な「楽団員」たちを紹介します。</p>
+
+            <figure>
+                <div class="mermaid">
+                    graph TD
+                        subgraph "Management Plane (管理)"
+                            vManage["vManage<br>(GUI / API)"]
+                        end
+
+                        subgraph "Orchestration Plane (調整)"
+                            vBond["vBond<br>(認証・橋渡し)"]
+                        end
+
+                        subgraph "Control Plane (制御)"
+                            vSmart["vSmart<br>(経路・ポリシー制御)"]
+                        end
+
+                        subgraph "Data Plane (データ転送)"
+                            Edge1["cEdge / vEdge<br>(拠点ルーター)"]
+                            Edge2["cEdge / vEdge<br>(拠点ルーター)"]
+                        end
+
+                        vManage -- "設定・監視" --> vSmart
+                        vManage -- "設定・監視" --> Edge1
+                        vManage -- "設定・監視" --> Edge2
+
+                        Edge1 -- "1. 認証要求" --> vBond
+                        Edge2 -- "1. 認証要求" --> vBond
+
+                        vSmart -- "3. ポリシー配布" --> Edge1
+                        vSmart -- "3. ポリシー配布" --> Edge2
+
+                        Edge1 -- "2. OMPで情報交換" --> vSmart
+                        Edge2 -- "2. OMPで情報交換" --> vSmart
+
+                        Edge1 -- "4. IPsecトンネル" --- Edge2
+                </div>
+                <figcaption>Cisco SD-WAN アーキテクチャ概要図</figcaption>
+            </figure>
+
+            <h3>1. vManage (マネジメントプレーン) - SD-WAN Manager / 指揮者</h3>
+            <p><strong>役割:</strong> ネットワーク全体の監視、設定、管理を行うためのGUI（Graphical User Interface）を提供します。<br>
+            <strong>機能:</strong> デバイスの設定テンプレート作成、パフォーマンスの可視化、トラブルシューティングツールなど、運用に必要なあらゆる機能が集約されています。管理者は基本的にこのvManageを操作してネットワークを管理します。<br>
+            <strong>形態:</strong> 主に仮想アプライアンスとして提供され、データセンターやクラウド上に構築します。</p>
+            <h4>冗長化設計の考慮点</h4>
+            <p>vManageはSD-WAN環境の運用管理の要となるため、高可用性（High Availability）を確保することが非常に重要です。一般的には、複数のvManageインスタンスをクラスタ構成でデプロイし、データベースの同期やロードバランシングを行うことで、単一障害点（Single Point of Failure）を排除します。これにより、一部のvManageに障害が発生しても、サービスを継続できます。</p>
+
+            <h3>2. vSmart (コントロールプレーン) - SD-WAN Controller / 作曲家/編曲家</h3>
+            <p><strong>役割:</strong> ネットワークの「頭脳」として、すべての経路情報とポリシーを一元的に管理・制御します。<br>
+            <strong>機能:</strong> 各拠点ルーター（Edge）から経路情報を受け取り、OMP（Overlay Management Protocol）を用いて、どの通信をどの経路に流すべきかという指示（ポリシー）を各Edgeに配布します。Edge同士が直接経路情報を交換するわけではないのがポイントです。<br>
+            <strong>形態:</strong> 仮想アプライアンスとして提供されます。</p>
+            <h4>冗長化設計の考慮点</h4>
+            <p>vSmartもまた、SD-WANファブリックのコントロールプレーンとして極めて重要な役割を担うため、冗長化が必須です。複数のvSmartインスタンスをデプロイし、相互に情報を同期させることで、いずれかのvSmartに障害が発生しても、他のvSmartがその役割を引き継ぎ、ネットワークの制御を継続できます。これにより、コントロールプレーンの可用性を高めます。</p>
+
+            <h3>3. vBond (オーケストレーションプレーン) - SD-WAN Validator / コンサートマスター</h3>
+            <p><strong>役割:</strong> 新しくネットワークに参加しようとするEdgeルーターの認証と、vManage/vSmartへの橋渡しを行います。<br>
+            <strong>機能:</strong> ネットワークに参加する最初の窓口です。EdgeルーターはまずvBondに接続し、正当なデバイスであることの認証を受けます。認証後、vBondはvManageとvSmartのIPアドレスをEdgeに教え、実際の管理・制御が開始されるように導きます。ゼロタッチプロビジョニング（Zero Touch Provisioning）の要となるコンポーネントです。<br>
+            <strong>形態:</strong> 仮想アプライアンスとして提供され、唯一グローバルIPアドレスを持つ必要があります。</p>
+
+            <h3>4. vEdge / cEdge (データプレーン) - SD-WAN vEdge cEdge / 演奏者</h3>
+            <p><strong>役割:</strong> vSmartの指示に基づき、実際にユーザーのデータを転送します。<br>
+            <strong>機能:</strong> 拠点やデータセンターに設置される物理的または仮想的なルーターです。vSmartから受け取ったポリシーに従い、他のEdgeルーターとの間にIPsecトンネルを張り、データを送受信します。<br>
+            <strong>形態:</strong> vEdgeはViptela由来のOSを搭載したルーター、cEdgeは従来のCiscoルーター（ISR/ASRシリーズ）にSD-WAN機能を追加したものです。現在ではcEdgeが主流となっています。</p>
+
+            <h3>連携のシーケンス：新しいルーターの参加</h3>
+            <p>新しいEdgeルーターがネットワークに参加する際の、各コンポーネント間の連携は以下のようになります。</p>
+            <div class="mermaid">
+            sequenceDiagram
+                participant Edge
+                participant vBond
+                participant vManage
+                participant vSmart
+
+                Edge->>vBond: 1. 発見と認証要求
+                vBond-->>Edge: 2. 認証成功＆vManage/vSmart情報を提供
+                Edge->>vManage: 3. 管理コネクション確立
+                vManage-->>Edge: 4. 設定情報をプッシュ
+                Edge->>vSmart: 5. 制御コネクション確立
+                vSmart-->>Edge: 6. OMPで経路・ポリシー情報を交換
+                Edge->>Edge: 7. データプレーン（IPsecトンネル）を確立
+            </div>
+            <p>このように、各コンポーネントが明確な役割分担のもとで連携することで、スケーラブルで管理しやすいネットワークが実現されています。</p>
+            <p>次のページでは、これらのコンポーネントが作り出す「オーバーレイネットワーク」など、SD-WANの根幹をなす技術的な仕組みについて、さらに詳しく見ていきましょう。</p>
+            <p class="cta-link">
+                <a href="mechanism.html">▶ Cisco SD-WANの仕組み：ネットワークを仮想化する技術と実践</a>
+            </p>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cisco SD-WAN 解説サイト</p>
+            <p><a href="#">お問い合わせ</a> | <a href="#">サイトマップ</a> | <a href="#">プライバシーポリシー</a></p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+</body>
+</html>

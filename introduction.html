@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cisco SD-WAN がなぜ現代のビジネスに必要とされているのか、従来のWANが抱える課題とSD-WANの登場背景を解説します。">
+    <meta property="og:title" content="はじめに - Cisco SD-WAN 解説" />
+    <meta property="og:description" content="Cisco SD-WAN がなぜ現代のビジネスに必要とされているのか、従来のWANが抱える課題とSD-WANの登場背景を解説します。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="[サイトのURL]/introduction.html" />
+    <meta property="og:image" content="[サイトのOGP画像URL]" />
+    <title>はじめに - Cisco SD-WAN 解説</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cisco SD-WAN: 次世代ネットワークの全貌</h1>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">トップ</a></li>
+                <li><a href="introduction.html" class="active" aria-current="page">はじめに</a></li>
+                <li><a href="what-is-sdwan.html">SD-WANとは</a></li>
+                <li><a href="components.html">主要コンポーネント</a></li>
+                <li><a href="mechanism.html">仕組み</a></li>
+                <li><a href="benefits.html">メリット</a></li>
+                <li><a href="use-cases.html">ユースケース</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="index.html">トップ</a></li>
+                <li><span>はじめに</span></li>
+            </ul>
+        </div>
+        <section id="intro">
+            <h2>はじめに：なぜ今、SD-WANが求められるのか？</h2>
+            <h3>ビジネスの変化と、従来のWANが抱える課題</h3>
+            <figure>
+                <img src="https://ferret-one.akamaized.net/images/5c945e955b3a4378c4001919/normal.jpeg" alt="複雑に絡み合ったネットワークケーブルの図。従来のWANの複雑さを象徴" loading="lazy">
+                <figcaption>従来のネットワークが抱える複雑さ</figcaption>
+            </figure>
+            <p>一昔前まで、企業のネットワーク（WAN）は比較的シンプルなものでした。本社やデータセンターに置かれた業務アプリケーションに、各拠点から専用線（MPLSなど）を使って接続する、というのが一般的な形でした。この構成は、閉じたネットワークで安定した通信が保証される反面、現代のビジネス環境の変化によって多くの課題を露呈しています。</p>
+            
+            <h3>1. クラウド利用の一般化とトラフィックの増大</h3>
+            <figure>
+                <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/n/naoto408/20200118/20200118102958.png" alt="雲のアイコンとサーバーラックのイメージ。クラウドサービスの普及とデータセンターの負荷増大を示す" loading="lazy">
+                <figcaption>クラウドサービスの普及とデータセンターの負荷</figcaption>
+            </figure>
+            <p>今や、Microsoft 365, Salesforce, AWS, Azureといったクラウドサービス（SaaS/IaaS）の利用は当たり前になりました。また、モバイルワークの普及やIoTデバイスの増加により、ネットワークに接続されるデバイスやアプリケーションは爆発的に増え、トラフィックは増大の一途をたどっています。従来のWAN構成では、拠点からクラウドへの通信も一度データセンターを経由するため、通信の遅延やデータセンターの回線逼迫といった問題が発生します。これを「ヘアピン問題」と呼びます。結果として、ユーザーの体感が損なわれ、業務効率が低下してしまいます。</p>
+            <h3>2. 高価で硬直的な回線コスト</h3>
+            <p>企業の生命線であったMPLS回線は、高品質でセキュアな反面、非常に高価で、開通までに数ヶ月かかることも珍しくありません。ビジネスのスピードが加速する中で、このような高コストで柔軟性に欠けるインフラは、企業の成長の足かせとなり得ます。</p>
+
+            <h3>3. 複雑化するネットワーク運用とセキュリティ</h3>
+            <p>クラウドの利用が増え、各拠点が直接インターネットに接続するようになると（インターネットブレイクアウト）、今度はセキュリティの確保が大きな課題となります。拠点ごとにファイアウォールなどのセキュリティ機器を設置・運用するのは、管理が煩雑になり、ポリシーの統一も難しくなります。結果として、セキュリティホールが生まれやすくなってしまいます。</p>
+
+            <h3>課題解決の切り札、SD-WAN（Software-Defined Wide Area Network）</h3>            
+            <figure>
+                <img src="https://ferret-one.akamaized.net/images/5c945e9bf875dd32bd002d27/normal.jpeg" alt="SD-WANの構成要素が連携する図。柔軟なネットワーク構築を表現" loading="lazy">
+                <figcaption>SD-WANソリューション構成</figcaption>
+            </figure>
+            <p>こうした複雑な課題を解決するために登場したのが、<strong>SD-WAN（Software-Defined Wide Area Network）</strong>です。</p>
+            <p>SD-WANは、「ソフトウェア定義」の技術を用いて、物理的なネットワーク（回線）の上に仮想的なネットワークを構築し、アプリケーションごとや通信の状況に応じて、最適な経路を動的に選択します。これにより、高価なMPLSと安価なインターネット回線を賢く使い分け、通信品質を維持しながらコストを削減し、運用をシンプルにすることが可能になります。</p>
+            <figure>
+                <img src="https://www.cisco.com/content/dam/cisco-cdc/site/us/en/images/networking/Routing_Listing_Rendering_758x484_v2.png" alt="SD-WAN Cisco製品">
+                <figcaption>SD-WAN Cisco製品</figcaption>
+            </figure>
+            <p>次のページでは、数あるSD-WANソリューションの中でも、なぜ「Cisco SD-WAN」が選ばれるのか、その概要と特徴について詳しく見ていきましょう。</p>
+            <p class="cta-link">
+                <a href="what-is-sdwan.html">▶ Cisco SD-WANとは？ 〜ViptelaとSASEの世界へ</a>
+            </p>            
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cisco SD-WAN 解説サイト</p>
+            <p><a href="#">お問い合わせ</a> | <a href="#">サイトマップ</a> | <a href="#">プライバシーポリシー</a></p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

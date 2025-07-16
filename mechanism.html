@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cisco SD-WAN の根幹をなすアンダーレイ/オーバーレイネットワーク、コントロールプレーン/データプレーンの分離、OMPやBFDなどの主要プロトコルについて解説します。">
+    <meta property="og:title" content="仕組み - Cisco SD-WAN 解説" />
+    <meta property="og:description" content="Cisco SD-WAN の根幹をなすアンダーレイ/オーバーレイネットワーク、コントロールプレーン/データプレーンの分離、OMPやBFDなどの主要プロトコルについて解説します。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="[サイトのURL]/mechanism.html" />
+    <meta property="og:image" content="[サイトのOGP画像URL]" />
+    <title>仕組み - Cisco SD-WAN 解説</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cisco SD-WAN: 次世代ネットワークの全貌</h1>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">トップ</a></li>
+                <li><a href="introduction.html">はじめに</a></li>
+                <li><a href="what-is-sdwan.html">SD-WANとは</a></li>
+                <li><a href="components.html">主要コンポーネント</a></li>
+                <li><a href="mechanism.html" class="active" aria-current="page">仕組み</a></li>
+                <li><a href="benefits.html">メリット</a></li>
+                <li><a href="use-cases.html">ユースケース</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="index.html">トップ</a></li>
+                <li><span>仕組み</span></li>
+            </ul>
+        </div>
+        <section id="mechanism">
+            <h2>Cisco SD-WANの仕組み：ネットワークを仮想化する技術と実践</h2>
+            <p>Cisco SD-WANのインテリジェンスは、物理的なネットワークの上に仮想的なネットワークを構築し、制御とデータ転送を分離するアーキテクチャによって実現されています。ここでは、その根幹をなす技術を掘り下げていきましょう。</p>
+
+            <h3>1. アンダーレイとオーバーレイ：物理と論理の分離</h3>
+            <p>SD-WANを理解する上で最も重要なコンセプトが「アンダーレイ」と「オーバーレイ」です。この分離こそが、SD-WANの柔軟性と効率性の源泉となります。</p>
+            <figure>
+                <img src="https://tech.broadmedia.co.jp/blog/img/sdwan/wan_10_image01.jpg" alt="アンダーレイとオーバーレイ" loading="lazy">
+                <figcaption>アンダーレイとオーバーレイ</figcaption>
+            </figure>
+            <ul>
+                <li><strong>アンダーレイネットワーク:</strong> これは物理的なインフラ層です。MPLS、インターネット、LTE/5Gなど、実際にデータを運ぶ物理的な回線網を指します。SD-WANは、これらの回線の種類を問いません。</li>
+                <li><strong>オーバーレイネットワーク:</strong> アンダーレイの上層に構築される仮想的なネットワーク層です。各拠点にあるEdgeルーターは、アンダーレイネットワークを経由して、相互に安全なIPsecトンネルを自動的に形成します。このトンネル網がオーバーレイネットワークです。アプリケーションのデータは、すべてこの仮想的なオーバーレイネットワークを通じてやり取りされます。</li>
+            </ul>
+            <p>この構造により、物理的な回線の複雑さを意識することなく、vManageから一元的に仮想ネットワーク全体を制御できるのです。例えば、ある拠点のインターネット回線がダウンしても、MPLS回線があれば自動的にそちらに切り替わり、ユーザーは通信断を意識することなく業務を継続できます。</p>
+
+            <h3>2. コントロールプレーンとデータプレーンの分離：柔軟な運用と拡張性</h3>
+            <p>従来のネットワーク機器では、経路を計算する「頭脳」（コントロールプレーン）と、データを転送する「手足」（データプレーン）が一体化していました。SD-WANでは、これを明確に分離します。</p>
+            <ul>
+                <li><strong>コントロールプレーン (vSmart) SD-WAN Controller:</strong> ネットワーク全体の経路情報とポリシーを集中管理します。どこからどこへ、どの経路で通信させるかを決定する「頭脳」です。</li>
+                <li><strong>データプレーン (Edgeルーター) SD-WAN vEdge cEdge:</strong> vSmartからの指示に従い、ひたすらデータを転送することに専念する「手足」です。</li>
+            </ul>
+            <p>この分離がもたらす最大のメリットは、ネットワーク全体の<strong>柔軟性と拡張性</strong>です。例えば、</p>
+            <ul>
+                <li><strong>障害時の迅速な経路再構成:</strong> ある拠点への主要回線がダウンした場合、vSmartが瞬時にその情報を検知し、代替経路（別の回線や別の拠点経由）をEdgeルーターに指示します。これにより、手動での設定変更なしに通信を継続できます。</li>
+                <li><strong>アプリケーションごとのQoS分離:</strong> 音声通話（VoIP）のようなリアルタイム性が求められるアプリケーションは優先度の高い回線に、ファイル転送のような帯域を多く使うがリアルタイム性は不要なアプリケーションは安価な回線に、といった細やかなポリシーを中央で設定し、全拠点に適用できます。</li>
+                <li><strong>ネットワークの拡張性:</strong> 新しい拠点やクラウド環境を追加する際も、vManageで設定を投入するだけで、vSmartが自動的に経路情報を配布し、Edgeルーターがトンネルを確立します。これにより、大規模なネットワークでも効率的に管理・拡張が可能です。</li>
+            </ul>
+
+            <h3>3. 主要プロトコル：SD-WANを支える通信技術</h3>
+            <p>このアーキテクチャを支えるために、いくつかの重要なプロトコルが使われています。また、Edgeルーターがネットワークに参加する際には、vBondが初期の認証と情報提供の役割を担います。</p>
+
+            <h4>OMP（Overlay Management Protocol）</h4>
+            <p>OMPは、vSmartとEdgeルーターの間、そしてvSmart同士の間で、オーバーレイネットワークに関する情報をやり取りするためのプロトコルです。TCPベースで動作し、以下の3種類の情報を運びます。</p>
+            <ul>
+                <li><strong>vRoutes:</strong> 従来のルーティングプロトコルでいう経路情報に相当します。各拠点のサーバーやPCのIPアドレス情報などが含まれます。vSmartはこれらの情報を集約し、最適な経路を計算して各Edgeに配布します。</li>
+                <li><strong>TLOCs (Transport Locators):</strong> 各Edgeルーターが持つ、アンダーレイネットワーク上の接続ポイント情報です。「どのルーター」が「どの回線（IPアドレス）」で「どのトンネル（IPsecなど）」を使えるか、といった情報が含まれます。OMPはvRoutesとTLOCsを関連付けて管理し、最適な通信パスを決定します。</li>
+                <li><strong>Service Routes:</strong> ファイアウォールやロードバランサーなど、拠点にある特定のサービス（機能）への経路情報です。これにより、特定のトラフィックを特定のサービスに誘導するポリシーを適用できます。</li>
+            </ul>
+            <h5>OMP情報交換の簡易シーケンス</h5>
+            <div class="mermaid">
+                sequenceDiagram
+                    participant EdgeA
+                    participant vSmart
+                    participant EdgeB
+
+                    EdgeA->>vSmart: OMP Update (vRoutes, TLOCs from EdgeA)
+                    EdgeB->>vSmart: OMP Update (vRoutes, TLOCs from EdgeB)
+                    vSmart-->>EdgeA: OMP Update (Best Paths to EdgeB, Policies)
+                    vSmart-->>EdgeB: OMP Update (Best Paths to EdgeA, Policies)
+                    EdgeA->>EdgeB: Data Traffic (via IPsec Tunnel)
+            </div>
+            <h5>TLOCの応用例：回線品質に応じた動的ルーティング</h5>
+            <p>例えば、ある拠点にインターネット回線とMPLS回線の両方がある場合、vSmartは両方の回線のTLOC情報を受け取ります。管理者はvManageで「VoIP通信はMPLS回線を優先し、インターネット回線はバックアップとする」といったポリシーを設定できます。BFDでMPLS回線の品質が低下したことを検知すると、vSmartはOMPを通じてEdgeルーターにインターネット回線への切り替えを指示し、VoIP通信の品質を維持します。</p>
+
+            <h4>BFD（Bidirectional Forwarding Detection）</h4>
+            <p>BFDは、Edgeルーター間で確立されたIPsecトンネルの状態を監視するためのプロトコルです。非常に短い間隔（ミリ秒単位）で「Hello」パケットを送り合い、一定時間応答がない場合に即座に回線断と判断します。これにより、特定のインターネット回線で遅延やパケットロスが増加した場合、それを迅速に検知し、vSmartが別の正常な経路へ通信を迂回させることが可能になります。</p>
+            <h5>BFDによる回線監視の簡易シーケンス</h5>
+            <div class="mermaid">
+                sequenceDiagram
+                    participant EdgeA
+                    participant EdgeB
+
+                    loop BFD Hello Packet Exchange
+                        EdgeA->>EdgeB: BFD Hello
+                        EdgeB->>EdgeA: BFD Hello (Reply)
+                    end
+                    alt Packet Loss / Latency Detected
+                        EdgeA->>EdgeB: BFD Failure (Threshold Exceeded)
+                        EdgeB->>EdgeA: BFD Failure (Threshold Exceeded)
+                        EdgeA->>vSmart: Path Status Update (Problematic)
+                        vSmart-->>EdgeA: Policy Update (Use Alternate Path)
+                    else All OK
+                        EdgeA-->>EdgeB: Data Traffic
+                    end
+            </div>
+            <h5>BFDのチューニングとセキュリティ連携</h5>
+            <p>BFDの検知間隔は、運用要件に合わせて調整可能です。例えば、リアルタイム性が重要なアプリケーションが多い場合は検知間隔を短く設定しますが、その分、誤検知のリスクも高まります。このバランスを考慮したチューニングが重要です。</p>
+            <p>また、BFDによる回線品質の監視は、セキュリティポリシーの適用にも影響します。例えば、特定の回線が不安定になった際に、その回線を経由するトラフィックに対して一時的にセキュリティポリシーを強化したり、別のセキュアな回線に動的に切り替えたりする「動的セキュアパス切替」も可能です。これにより、ネットワークの可用性とセキュリティの両方を高めることができます。</p>
+
+            <p>次のページでは、これらの仕組みによって、具体的にどのようなメリットがもたらされるのかを見ていきましょう。</p>
+            <p class="cta-link">
+                <a href="benefits.html">▶ 主なメリット：ビジネスを加速させる4つの力</a>
+            </p>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cisco SD-WAN 解説サイト</p>
+            <p><a href="#">お問い合わせ</a> | <a href="#">サイトマップ</a> | <a href="#">プライバシーポリシー</a></p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+</body>
+</html>

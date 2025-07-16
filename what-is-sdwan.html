@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cisco SD-WAN の概要、Viptelaの買収経緯、そして将来のSASEアーキテクチャへの展望について解説します。">
+    <meta property="og:title" content="Cisco SD-WANとは？ - Cisco SD-WAN 解説" />
+    <meta property="og:description" content="Cisco SD-WAN の概要、Viptelaの買収経緯、そして将来のSASEアーキテクチャへの展望について解説します。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="[サイトのURL]/what-is-sdwan.html" />
+    <meta property="og:image" content="[サイトのOGP画像URL]" />
+    <title>Cisco SD-WANとは？ - Cisco SD-WAN 解説</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cisco SD-WAN: 次世代ネットワークの全貌</h1>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">トップ</a></li>
+                <li><a href="introduction.html">はじめに</a></li>
+                <li><a href="what-is-sdwan.html" class="active" aria-current="page">SD-WANとは</a></li>
+                <li><a href="components.html">主要コンポーネント</a></li>
+                <li><a href="mechanism.html">仕組み</a></li>
+                <li><a href="benefits.html">メリット</a></li>
+                <li><a href="use-cases.html">ユースケース</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="index.html">トップ</a></li>
+                <li><span>SD-WANとは</span></li>
+            </ul>
+        </div>
+        <section id="what-is-sdwan">
+            <h2>Cisco SD-WANとは？ ViptelaからSASEへ</h2>
+
+            <h3>Viptelaの買収とCisco SD-WANの誕生</h3>
+            <p>Cisco SD-WANの物語は、2017年にCiscoがSD-WANのパイオニアであったViptela社を買収したことから始まります。Viptelaは、その先進的なアーキテクチャと強力なルーティング機能で高く評価されていました。Ciscoはこの優れた技術を取り込み、自社の広範なネットワーク製品群と統合することで、エンタープライズ向けの強力なSD-WANソリューションを確立しました。これが現在の「Cisco SD-WAN（旧Viptelaソリューション）」です。</p>
+            <figure>
+                <img src="https://ferret-one.akamaized.net/images/5c945ea1979afc3c31000bf7/normal.jpeg" alt="Cisco SD-WAN" loading="lazy">
+                <figcaption>Cisco SD-WAN</figcaption>
+            </figure>
+            <p>このため、Cisco SD-WANのアーキテクチャやコンポーネントの名称（vManage, vSmartなど）には、Viptelaの思想が色濃く反映されています。</p>
+
+            <h3>単なるSD-WANを超えて：SASEへの道</h3>
+            <p>Cisco SD-WANは、単に拠点間を接続するだけのソリューションではありません。Ciscoは、ネットワーク機能とセキュリティ機能をクラウド上で統合して提供する新しいアーキテクチャ、<strong>「SASE（サシー、Secure Access Service Edge）」</strong>の実現を視野に入れています。</p>
+            <h4>SASEを構成する主要な要素</h4>
+            <ul>
+                <li><strong>SWG (Secure Web Gateway):</strong> 不正なWebサイトへのアクセスをブロックし、Webトラフィックを保護します。</li>
+                <li><strong>CASB (Cloud Access Security Broker):</strong> クラウドアプリケーションの利用状況を可視化・制御し、データセキュリティを強化します。</li>
+                <li><strong>FWaaS (Firewall as a Service):</strong> クラウドベースで提供されるファイアウォール機能で、どこからでも一貫したセキュリティポリシーを適用します。</li>
+                <li><strong>ZTNA (Zero Trust Network Access):</strong> ユーザーやデバイスがネットワークにアクセスする際に、常に認証・認可を行うことで、信頼しないアクセスを排除します。</li>
+            </ul>
+            <h4>SASEを構成する主要な要素</h4>
+            <ul>
+                <li><strong>SWG (Secure Web Gateway):</strong> 不正なWebサイトへのアクセスをブロックし、Webトラフィックを保護します。</li>
+                <li><strong>CASB (Cloud Access Security Broker):</strong> クラウドアプリケーションの利用状況を可視化・制御し、データセキュリティを強化します。</li>
+                <li><strong>FWaaS (Firewall as a Service):</strong> クラウドベースで提供されるファイアウォール機能で、どこからでも一貫したセキュリティポリシーを適用します。</li>
+                <li><strong>ZTNA (Zero Trust Network Access):</strong> ユーザーやデバイスがネットワークにアクセスする際に、常に認証・認可を行うことで、信頼しないアクセスを排除します。</li>
+                <!-- 必要に応じてアイコンを追加 -->
+            </ul>
+            <figure>
+                <img src="https://www.sojitz-ti.com/focusarea/column/uploads/about_sase_03.png" alt="SASE Architecture" loading="lazy">
+                <figcaption>SASEはネットワークとセキュリティをクラウドで統合する</figcaption>
+            </figure>
+            <p>SASEの世界では、SD-WANは安全で最適なネットワーク経路を提供する「基盤」の役割を担います。そして、その上でファイアウォール、セキュアウェブゲートウェイ（SWG）、CASB（Cloud Access Security Broker）といった様々なセキュリティ機能がクラウドサービスとして提供されます。これにより、ユーザーがどこから（オフィス、自宅、外出先）、どのクラウドサービスにアクセスしようとも、一貫した高いレベルのセキュリティを確保できるようになります。</p>
+            <p>Cisco SD-WANを導入することは、将来的にSASEアーキテクチャへとスムーズに移行するための重要な第一歩となるのです。</p>
+
+            <h3>Cisco SD-WANアーキテクチャの概要</h3>
+            <p>Cisco SD-WANは、ネットワークの役割を以下の4つの「プレーン（層）」に明確に分離・定義しているのが大きな特徴です。</p>
+            <ul>
+                <li><strong>オーケストレーションプレーン（vBond）SD-WAN Validator:</strong> 新しい機器の参加を調整し、全体をつなぎ合わせる役割。</li>
+                <li><strong>マネジメントプレーン（vManage）SD-WAN Manager:</strong> ネットワーク全体を監視・管理する役割。</li>
+                <li><strong>コントロールプレーン（vSmart）SD-WAN Controller:</strong> 通信経路を決定し、ポリシーを制御する「頭脳」の役割。</li>
+                <li><strong>データプレーン（SD-WAN vEdge cEdge）:</strong> 実際にデータを転送する役割。</li>
+            </ul>
+            <figure>
+                <img src="https://tigerabbit-blog.com/wp-content/uploads/2021/05/%E5%9B%B35-1024x507.png" alt="CISCO SD-WAN Architecture" loading="lazy">
+                <figcaption>CISCO SD-WAN Architecture</figcaption>
+            </figure>
+            <p>このアーキテクチャにより、従来のようにルーター一台一台にログインして設定を行う必要がなくなり、中央の管理ポイントからネットワーク全体を柔軟かつ効率的に制御することが可能になります。</p>
+            <p>次のページでは、これらの各プレーンで具体的にどのようなコンポーネントが稼働しているのかを、詳しく見ていきましょう。</p>
+            <p class="cta-link">
+                <a href="components.html">▶ 主要コンポーネント：オーケストラを構成する楽団員たち</a>
+            </p>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cisco SD-WAN 解説サイト</p>
+            <p><a href="#">お問い合わせ</a> | <a href="#">サイトマップ</a> | <a href="#">プライバシーポリシー</a></p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

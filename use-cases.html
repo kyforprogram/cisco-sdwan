@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cisco SD-WAN が多拠点展開、クラウド接続、リモートワーク、ネットワーク運用簡素化といった実際のビジネス課題をどのように解決するかを具体例で解説します。">
+    <meta property="og:title" content="ユースケース - Cisco SD-WAN 解説" />
+    <meta property="og:description" content="Cisco SD-WAN が多拠点展開、クラウド接続、リモートワーク、ネットワーク運用簡素化といった実際のビジネス課題をどのように解決するかを具体例で解説します。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="[サイトのURL]/use-cases.html" />
+    <meta property="og:image" content="[サイトのOGP画像URL]" />
+    <title>ユースケース - Cisco SD-WAN 解説</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cisco SD-WAN: 次世代ネットワークの全貌</h1>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">トップ</a></li>
+                <li><a href="introduction.html">はじめに</a></li>
+                <li><a href="what-is-sdwan.html">SD-WANとは</a></li>
+                <li><a href="components.html">主要コンポーネント</a></li>
+                <li><a href="mechanism.html">仕組み</a></li>
+                <li><a href="benefits.html">メリット</a></li>
+                <li><a href="use-cases.html" class="active" aria-current="page">ユースケース</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="index.html">トップ</a></li>
+                <li><span>ユースケース</span></li>
+            </ul>
+        </div>
+        <section id="use-cases">
+            <h2>Cisco SD-WANのユースケース：ビジネス課題を解決する具体例</h2>
+            <p>Cisco SD-WANは、単なるネットワーク技術の進化に留まらず、現代の企業が直面する様々なビジネス課題を解決するための強力なツールとなります。ここでは、代表的なユースケースをいくつかご紹介します。</p>
+
+            <h3>1. 多拠点展開の効率化とコスト削減</h3>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e534153bb?auto=format&fit=crop&w=1000&q=80" alt="世界地図とネットワーク接続のイメージ" loading="lazy">
+                <figcaption>迅速な拠点展開とコスト最適化</figcaption>
+            </figure>
+            <p><strong>課題:</strong> 新しい支店、店舗、工場などを開設する際、ネットワークの設計、機器の調達、現地での設定作業に時間とコストがかかり、ビジネスの迅速な展開を妨げている。</p>
+            <p><strong>Cisco SD-WANによる解決:</strong> ゼロタッチプロビジョニング（Zero Touch Provisioning）を活用することで、現地での専門知識を必要とせず、電源とインターネット回線を接続するだけで自動的にネットワーク設定が完了します。これにより、拠点展開にかかる時間と人件費を大幅に削減し、ビジネスの成長を加速させます。また、高価な専用線に依存せず、安価なインターネット回線を活用することで、通信コストも最適化できます。</p>
+            <p><strong>導入事例の概念:</strong> 例えば、全国に100店舗を展開する小売業A社では、新規店舗のネットワーク開通に平均2週間を要していました。Cisco SD-WAN導入後、ZTPにより開通期間が平均2日に短縮され、年間で数千万円のコスト削減と、新店舗の早期オープンによる売上増加を実現しました。</p>
+
+            <h3>2. クラウド接続の最適化とセキュリティ強化</h3>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000&q=80" alt="雲とサーバーのイメージ" loading="lazy">
+                <figcaption>クラウドへの最適なアクセス</figcaption>
+            </figure>
+            <p><strong>課題:</strong> Microsoft 365、Salesforce、AWS、Azureなどのクラウドサービス利用が増えるにつれて、従来のデータセンター経由の通信（ヘアピン問題）による遅延や帯域逼迫が発生し、ユーザーの生産性が低下している。また、各拠点から直接インターネットに接続する「インターネットブレイクアウト」は、セキュリティリスクを高める。
+            <p><strong>Cisco SD-WANによる解決:</strong> アプリケーションを識別し、クラウドサービスへの通信を直接インターネットへブレイクアウトさせることができます。これにより、遅延を最小限に抑え、快適なクラウド利用を実現します。さらに、Edgeルーターに統合されたセキュリティ機能や、Cisco Umbrellaなどのクラウドセキュリティサービスと連携により、インターネットブレイクアウト時のセキュリティリスクを低減し、どこからでも安全なクラウドアクセスを提供します。</p>
+            <p><strong>導入事例の概念:</strong> 製造業B社では、Office 365の利用が全社的に拡大するにつれて、拠点からのアクセス遅延が問題となっていました。Cisco SD-WANを導入し、Office 365トラフィックを直接インターネットブレイクアウトさせることで、通信速度が平均30%向上し、従業員のクラウドアプリケーション利用におけるストレスが大幅に軽減されました。</p>
+
+            <h3>3. リモートワーク環境の強化とセキュアなアクセス</h3>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=1000&q=80" alt="自宅でPC作業をする人" loading="lazy">
+                <figcaption>どこからでも安全に業務</figcaption>
+            </figure>
+            <p><strong>課題:</strong> 在宅勤務やモバイルワークが普及する中で、従業員が社内システムやデータに安全かつ快適にアクセスできる環境の提供が求められている。VPN接続の遅延や、セキュリティポリシーの一貫性確保が難しい。
+            <p><strong>Cisco SD-WANによる解決:</strong> Cisco AnyConnect VPNクライアントと連携することで、リモートワーカーもSD-WANファブリックの一部として安全に接続できます。SD-WANのポリシーベースルーティングにより、社内システムへのアクセスはセキュアなトンネル経由で、SaaSアプリケーションへのアクセスは直接インターネットへ、といった柔軟な経路制御が可能です。これにより、リモートワーカーの生産性を向上させつつ、企業ネットワーク全体のセキュリティを維持できます。</p>
+            <p><strong>導入事例の概念:</strong> 金融C社では、コロナ禍を機にリモートワークが常態化し、VPN集中によるアクセス遅延やセキュリティリスクが顕在化していました。Cisco SD-WANとAnyConnectを組み合わせることで、リモートワーカーのアクセス経路を最適化し、社内システムへのセキュアなアクセスを確保。同時に、クラウドセキュリティとの連携により、自宅からのインターネット利用も安全に行えるようになりました。</p>
+
+            <h3>4. ネットワーク運用の簡素化と可視性の向上</h3>
+            <figure>
+                <img src="https://images.unsplash.com/photo-1551288259-f72777922173?auto=format&fit=crop&w=1000&q=80" alt="ネットワーク監視画面のイメージ" loading="lazy">
+                <figcaption>一元管理で運用を効率化</figcaption>
+            </figure>
+            <p><strong>課題:</strong> 複雑なWAN環境の管理、トラブルシューティング、パフォーマンス監視に多くの時間とリソースが割かれている。ネットワーク全体の状況を把握しにくい。
+            <p><strong>Cisco SD-WANによる解決:</strong> vManageによる一元的な管理コンソールは、ネットワーク全体の構成、パフォーマンス、セキュリティ状況をリアルタイムで可視化します。直感的なGUIを通じて、ポリシーの変更やトラブルシューティングを迅速に行うことができ、運用負荷を大幅に軽減します。また、詳細なレポート機能により、ネットワークの利用状況やアプリケーションのパフォーマンスを正確に把握し、継続的な改善に役立てることができます。</p>
+            <p><strong>導入事例の概念:</strong> ITサービスD社では、多数の顧客拠点のWANを管理しており、運用コストが課題でした。Cisco SD-WANのvManageを導入することで、各拠点のネットワーク状況をリアルタイムで把握し、トラブル発生時の原因特定時間を平均50%削減。運用チームの負担を軽減し、より戦略的な業務に注力できるようになりました。</p>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cisco SD-WAN 解説サイト</p>
+            <p><a href="#">お問い合わせ</a> | <a href="#">サイトマップ</a> | <a href="#">プライバシーポリシー</a></p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
