@@ -1,0 +1,286 @@
+/* 基本スタイル */
+body {
+    font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+
+p {
+    margin-bottom: 1.5rem; /* 段落間の余白を追加 */
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ヘッダー */
+header {
+    background: #005a9e;
+    color: #fff;
+    padding: 1.5rem 0;
+    text-align: center;
+    border-bottom: 5px solid #00bceb;
+    position: relative; /* ハンバーガーメニューの基準点 */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* ナビゲーション */
+nav ul {
+    padding: 0;
+    list-style: none;
+    background: #333;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 20px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+nav a:hover,
+nav a.active,
+nav a[aria-current="page"] {
+    background: #00bceb;
+}
+
+/* ハンバーガーメニューアイコン */
+.menu-toggle {
+    display: none; /* デフォルトでは非表示 */
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    z-index: 1000;
+}
+
+/* メインコンテンツ */
+main {
+    padding: 2rem 0;
+}
+
+section {
+    background: #fff;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #005a9e;
+    border-bottom: 3px solid #00bceb;
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+/* トップページ用グリッド */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.grid-item {
+    background: #f0f8ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 5px solid #00bceb;
+}
+
+.grid-item h3 a {
+    color: #005a9e;
+    text-decoration: none;
+}
+
+/* 画像 */
+figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    color: #333; /* コントラスト比を改善 */
+    font-style: italic;
+}
+
+/* パンくずリスト */
+.breadcrumbs {
+    padding: 1rem 0;
+    background: #eee;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumbs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.breadcrumbs li {
+    display: inline;
+}
+
+.breadcrumbs li + li::before {
+    content: ">\00a0"; /* > と半角スペース */
+    padding: 0 5px;
+    color: #666;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: #005a9e;
+}
+
+.breadcrumbs span {
+    color: #666;
+}
+
+/* CTAリンク */
+.cta-link {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cta-link a {
+    display: inline-block;
+    background: #00bceb;
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.cta-link a:hover {
+    background: #009ec4;
+}
+
+/* 用語集索引 */
+.glossary-index ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #f8f8f8;
+}
+
+.glossary-index li {
+    margin: 5px;
+}
+
+.glossary-index a {
+    display: block;
+    padding: 5px 10px;
+    background: #eee;
+    border-radius: 3px;
+    text-decoration: none;
+    color: #005a9e;
+    font-weight: bold;
+}
+
+.glossary-index a:hover {
+    background: #ddd;
+}
+
+dl dt {
+    font-weight: bold;
+    margin-top: 1.5rem;
+    color: #005a9e;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 0.3rem;
+}
+
+dl dd {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: #333;
+    color: #fff;
+    margin-top: 2rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .menu-toggle {
+        display: block; /* モバイルで表示 */
+    }
+
+    nav ul {
+        display: none; /* デフォルトで非表示 */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #333;
+        z-index: 999;
+    }
+
+    nav ul.show {
+        display: flex; /* JavaScriptで表示 */
+    }
+
+    nav ul li {
+        display: block;
+        width: 100%;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px 15px;
+        text-align: left;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+}

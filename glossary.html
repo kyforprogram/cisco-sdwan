@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cisco SD-WAN に関連する主要な専門用語を解説する用語集です。SD-WANの理解を深めるのに役立ちます。">
+    <meta property="og:title" content="用語集 - Cisco SD-WAN 解説" />
+    <meta property="og:description" content="Cisco SD-WAN に関連する主要な専門用語を解説する用語集です。SD-WANの理解を深めるのに役立ちます。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="[サイトのURL]/glossary.html" />
+    <meta property="og:image" content="[サイトのOGP画像URL]" />
+    <title>用語集 - Cisco SD-WAN 解説</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Cisco SD-WAN: 次世代ネットワークの全貌</h1>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav>
+            <ul class="main-nav">
+                <li><a href="index.html">トップ</a></li>
+                <li><a href="introduction.html">はじめに</a></li>
+                <li><a href="what-is-sdwan.html">SD-WANとは</a></li>
+                <li><a href="components.html">主要コンポーネント</a></li>
+                <li><a href="mechanism.html">仕組み</a></li>
+                <li><a href="benefits.html">メリット</a></li>
+                <li><a href="use-cases.html">ユースケース</a></li>
+                <li><a href="licensing.html">ライセンス</a></li>
+                <li><a href="glossary.html" class="active" aria-current="page">用語集</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="index.html">トップ</a></li>
+                <li><span>用語集</span></li>
+            </ul>
+        </div>
+        <section id="glossary">
+            <h2>用語集（Glossary）</h2>
+            <p>Cisco SD-WANおよび関連技術の理解を深めるための主要な専門用語をまとめました。</p>
+
+            <div class="glossary-index">
+                <h3>索引</h3>
+                <ul>
+                    <li><a href="#bfd">B</a></li>
+                    <li><a href="#hairpinning">H</a></li>
+                    <li><a href="#internet-breakout">I</a></li>
+                    <li><a href="#mpls">M</a></li>
+                    <li><a href="#omp">O</a></li>
+                    <li><a href="#sase">S</a></li>
+                    <li><a href="#sd-wan">S</a></li>
+                    <li><a href="#tloc">T</a></li>
+                    <li><a href="#vbond">V</a></li>
+                    <li><a href="#vedge-cedge">V</a></li>
+                    <li><a href="#vmanage">V</a></li>
+                    <li><a href="#vsmart">V</a></li>
+                    <li><a href="#ztp">Z</a></li>
+                </ul>
+            </div>
+
+            <dl>
+                <dt id="bfd">BFD（Bidirectional Forwarding Detection）</dt>
+                <dd>バイディレクショナル・フォワーディング・ディテクション。ネットワークパスの障害を高速に検知するためのプロトコルです。ミリ秒単位でパケットを送り合い、回線品質の低下や断を迅速に把握し、経路切り替えに貢献します。</dd>
+
+                <dt id="hairpinning">ヘアピン問題（Hairpinning）</dt>
+                <dd>拠点からクラウドサービスへの通信が、一度データセンターを経由してインターネットに出ることで発生する遅延や帯域逼迫の問題です。SD-WANのインターネットブレイクアウト機能で解決されます。</dd>
+
+                <dt id="internet-breakout">インターネットブレイクアウト（Internet Breakout）</dt>
+                <dd>各拠点から直接インターネットに接続すること。クラウドサービスへのアクセスを最適化し、データセンターの負荷を軽減しますが、適切なセキュリティ対策が必要です。</dd>
+
+                <dt id="mpls">MPLS（Multiprotocol Label Switching）</dt>
+                <dd>マルチプロトコル・ラベル・スイッチング。IPパケットに「ラベル」を付与して転送することで、高速なルーティングを実現する技術です。従来のWANで広く利用されてきました。</dd>
+
+                <dt id="omp">OMP（Overlay Management Protocol）</dt>
+                <dd>オーバーレイマネジメントプロトコル。vSmartとEdgeルーター間で、経路情報（vRoutes）、トランスポートロケーター情報（TLOCs）、サービス情報（Service Routes）などを交換するためのCisco SD-WAN独自のプロトコルです。</dd>
+
+                <dt id="sase">SASE（Secure Access Service Edge）</dt>
+                <dd>サシー。ネットワーク機能（SD-WANなど）とセキュリティ機能（SWG, CASB, FWaaSなど）をクラウド上で統合して提供する新しいアーキテクチャです。どこからでも安全かつ最適なアクセスを実現します。</dd>
+
+                <dt id="sd-wan">SD-WAN（Software-Defined Wide Area Network）</dt>
+                <dd>ソフトウェア定義によって、WAN（広域ネットワーク）のトラフィックを動的に制御・最適化する技術です。複数の回線を仮想的に束ね、アプリケーションの要件に応じて最適な経路を選択します。</dd>
+
+                <dt id="tloc">TLOC（Transport Locator）</dt>
+                <dd>トランスポートロケーター。各Edgeルーターがアンダーレイネットワーク上で持つ接続ポイント情報です。IPアドレス、カラー（回線の種類）、カプセル化タイプ（IPsecなど）で構成され、オーバーレイネットワークの経路決定に利用されます。</dd>
+
+                <dt id="vbond">vBond（SD-WAN Validator）</dt>
+                <dd>Cisco SD-WANのオーケストレーションプレーンを担うコンポーネントです。新しいEdgeルーターがネットワークに参加する際の認証を行い、vManageやvSmartへの接続を仲介する役割を果たします。</dd>
+
+                <dt id="vedge-cedge">vEdge / cEdge</dt>
+                <dd>Cisco SD-WANのデータプレーンを担うルーターです。実際にユーザーのデータトラフィックを転送します。vEdgeはViptela由来のOSを搭載したルーター、cEdgeはCisco IOS XEを搭載した従来のCiscoルーターにSD-WAN機能を追加したものです。</dd>
+
+                <dt id="vmanage">vManage（SD-WAN Manager）</dt>
+                <dd>Cisco SD-WANソリューション全体の統合管理を行うためのGUI（Graphical User Interface）ツールです。ポリシー設定、監視、トラブルシューティングなどを一元的に行います。</dd>
+
+                <dt id="vsmart">vSmart（SD-WAN Controller）</dt>
+                <dd>Cisco SD-WANのコントロールプレーンを担うコンポーネントで、ネットワークの「頭脳」にあたります。各Edgeルーターからの経路情報やトポロジー情報を収集し、ポリシーに基づいて最適な通信経路を決定・配布します。</dd>
+
+                <dt id="ztp">ZTP（Zero Touch Provisioning）</dt>
+                <dd>ゼロタッチプロビジョニング。ネットワーク機器を現地で手動設定することなく、電源とネットワークケーブルを接続するだけで自動的に初期設定が完了する仕組みです。拠点展開の迅速化に貢献します。</dd>
+            </dl>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cisco SD-WAN 解説サイト</p>
+            <p><a href="#">お問い合わせ</a> | <a href="#">サイトマップ</a> | <a href="#">プライバシーポリシー</a></p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
