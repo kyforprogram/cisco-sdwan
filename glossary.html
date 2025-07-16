@@ -48,13 +48,23 @@
             <div class="glossary-index">
                 <h3>索引</h3>
                 <ul>
+                    <li><a href="#aar">A</a></li>
                     <li><a href="#bfd">B</a></li>
+                    <li><a href="#cloud-onramp">C</a></li>
+                    <li><a href="#control-plane">C</a></li>
+                    <li><a href="#data-plane">D</a></li>
+                    <li><a href="#dia">D</a></li>
                     <li><a href="#hairpinning">H</a></li>
                     <li><a href="#internet-breakout">I</a></li>
+                    <li><a href="#ipsec">I</a></li>
+                    <li><a href="#management-plane">M</a></li>
                     <li><a href="#mpls">M</a></li>
                     <li><a href="#omp">O</a></li>
+                    <li><a href="#orchestration-plane">O</a></li>
+                    <li><a href="#overlay-underlay">O</a></li>
                     <li><a href="#sase">S</a></li>
                     <li><a href="#sd-wan">S</a></li>
+                    <li><a href="#sla">S</a></li>
                     <li><a href="#tloc">T</a></li>
                     <li><a href="#vbond">V</a></li>
                     <li><a href="#vedge-cedge">V</a></li>
@@ -103,6 +113,35 @@
 
                 <dt id="ztp">ZTP（Zero Touch Provisioning）</dt>
                 <dd>ゼロタッチプロビジョニング。ネットワーク機器を現地で手動設定することなく、電源とネットワークケーブルを接続するだけで自動的に初期設定が完了する仕組みです。拠点展開の迅速化に貢献します。</dd>
+                <dt id="aar">AAR（Application-Aware Routing）</dt>
+                <dd>アプリケーションアウェアルーティング。アプリケーションの要件（遅延、ジッター、パケットロスなど）をリアルタイムで測定し、SLA（サービス品質保証）を満たす最適な回線経路を自動的に選択する機能です。</dd>
+
+                <dt id="cloud-onramp">Cloud OnRamp for SaaS</dt>
+                <dd>主要なSaaS（Software as a Service）アプリケーション（例: Microsoft 365, Salesforce）への通信パフォーマンスを最適化するCisco SD-WANの機能です。最も近いクラウドゲートウェイへの経路を自動的に選択し、ユーザー体感を向上させます。</dd>
+
+                <dt id="control-plane">コントロールプレーン（Control Plane）</dt>
+                <dd>ネットワーク全体の制御情報を管理する論理的な層です。Cisco SD-WANではvSmartコントローラがこの役割を担い、ルーティング情報（OMP）の交換やポリシーの適用を行います。</dd>
+
+                <dt id="data-plane">データプレーン（Data Plane）</dt>
+                <dd>実際のユーザーデータパケットを転送する論理的な層です。Cisco SD-WANではvEdge/cEdgeルーターがこの役割を担い、コントロールプレーンからの指示に基づいてIPsecトンネル経由でデータを転送します。</dd>
+
+                <dt id="dia">DIA（Direct Internet Access）</dt>
+                <dd>ダイレクト・インターネット・アクセス。各拠点からデータセンターを経由せず、直接インターネットへ抜ける通信経路のことです。インターネットブレイクアウトとほぼ同義で使われます。</dd>
+
+                <dt id="ipsec">IPsec（Internet Protocol Security）</dt>
+                <dd>IPネットワーク上で安全な通信を実現するためのプロトコル群です。データの暗号化や認証機能を提供し、Cisco SD-WANでは拠点間のデータプレーン通信を保護するデフォルトのトンネルプロトコルとして利用されます。</dd>
+
+                <dt id="management-plane">マネジメントプレーン（Management Plane）</dt>
+                <dd>ネットワーク全体の設定、監視、管理を行う論理的な層です。Cisco SD-WANではvManageがこの役割を担い、GUIを通じてネットワーク全体を一元管理します。</dd>
+
+                <dt id="orchestration-plane">オーケストレーションプレーン（Orchestration Plane）</dt>
+                <dd>ネットワークに参加する新しいデバイスの認証と、各コンポーネント間の接続を仲介する論理的な層です。Cisco SD-WANではvBondがこの役割を担います。</dd>
+
+                <dt id="overlay-underlay">オーバーレイ / アンダーレイネットワーク</dt>
+                <dd>アンダーレイはMPLSやインターネットなどの物理的な回線網を指します。オーバーレイは、そのアンダーレイの上に構築される仮想的なネットワーク（IPsecトンネル網）を指します。SD-WANはオーバーレイ技術の一種です。</dd>
+
+                <dt id="sla">SLA（Service Level Agreement）</dt>
+                <dd>サービス品質保証。通信サービスの品質（速度、可用性、遅延など）に関する合意事項です。SD-WANでは、このSLAに基づいてアプリケーションごとに最適な経路を選択します。</dd>
             </dl>
         </section>
     </main>
