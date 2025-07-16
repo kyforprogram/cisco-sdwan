@@ -250,7 +250,7 @@ footer {
         display: block; /* モバイルで表示 */
     }
 
-    nav ul {
+    nav .main-nav {
         display: none; /* デフォルトで非表示 */
         flex-direction: column;
         width: 100%;
@@ -261,7 +261,7 @@ footer {
         z-index: 999;
     }
 
-    nav ul.show {
+    nav .main-nav.show {
         display: flex; /* JavaScriptで表示 */
     }
 
