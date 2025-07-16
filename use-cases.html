@@ -74,15 +74,18 @@
 
             <h3>4. ネットワーク運用の簡素化と可視性の向上</h3>
             <figure>
-                <img src="https://images.unsplash.com/photo-1551288259-f72777922173?auto=format&fit=crop&w=1000&q=80" alt="ネットワーク監視画面のイメージ" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1551288259-f72777922173?auto=format&fit=crop&w=800&q=80" srcset="https://images.unsplash.com/photo-1551288259-f72777922173?auto=format&fit=crop&w=400&q=80 400w, https://images.unsplash.com/photo-1551288259-f72777922173?auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1551288259-f72777922173?auto=format&fit=crop&w=1200&q=80 1200w" sizes="(max-width: 600px) 400px, 800px" alt="ネットワーク監視画面のイメージ" loading="lazy">
                 <figcaption>一元管理で運用を効率化</figcaption>
             </figure>
             <p><strong>課題:</strong> 複雑なWAN環境の管理、トラブルシューティング、パフォーマンス監視に多くの時間とリソースが割かれている。ネットワーク全体の状況を把握しにくい。
             <p><strong>Cisco SD-WANによる解決:</strong> vManageによる一元的な管理コンソールは、ネットワーク全体の構成、パフォーマンス、セキュリティ状況をリアルタイムで可視化します。直感的なGUIを通じて、ポリシーの変更やトラブルシューティングを迅速に行うことができ、運用負荷を大幅に軽減します。また、詳細なレポート機能により、ネットワークの利用状況やアプリケーションのパフォーマンスを正確に把握し、継続的な改善に役立てることができます。</p>
             <p><strong>導入事例の概念:</strong> ITサービスD社では、多数の顧客拠点のWANを管理しており、運用コストが課題でした。Cisco SD-WANのvManageを導入することで、各拠点のネットワーク状況をリアルタイムで把握し、トラブル発生時の原因特定時間を平均50%削減。運用チームの負担を軽減し、より戦略的な業務に注力できるようになりました。</p>
+            <p class="cta-link">
+                <a href="licensing.html" rel="next">▶ ライセンス体系：必要な機能を見極める</a>
+            </p>
         </section>
     </main>
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>&copy; 2025 Cisco SD-WAN 解説サイト</p>
             <p><a href="#">お問い合わせ</a> | <a href="#">サイトマップ</a> | <a href="#">プライバシーポリシー</a></p>
@@ -92,6 +95,18 @@
         document.getElementById('mobile-menu').addEventListener('click', function() {
             document.querySelector('.main-nav').classList.toggle('show');
         });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 現在のファイル名だけ抜き出す
+        const current = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.main-nav a').forEach(a => {
+          // href が現在のファイル名と一致したら active を付与
+          if (a.getAttribute('href') === current) {
+            a.classList.add('active');
+          }
+        });
+      });
     </script>
 </body>
 </html>

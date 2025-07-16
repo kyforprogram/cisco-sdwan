@@ -34,7 +34,7 @@
             </ul>
         </nav>
     </header>
-    <main class="container">
+    <main class="container wide">
         <div class="breadcrumbs">
             <ul>
                 <li><a href="index.html">トップ</a></li>
@@ -74,15 +74,18 @@
 
             <h3>4. 統合されたセキュリティ - どこにいても安全な接続</h3>
             <figure>
-                <img src="https://images.unsplash.com/photo-1551288259-f72777922173?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="鍵と盾のアイコン" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1551288259-f72777922173?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" srcset="https://images.unsplash.com/photo-1551288259-f72777922173?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 400w, https://images.unsplash.com/photo-1551288259-f72777922173?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 800w, https://images.unsplash.com/photo-1551288259-f72777922173?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 1200w" sizes="(max-width: 600px) 400px, 800px" alt="鍵と盾のアイコン" loading="lazy">
                 <figcaption>多層防御でネットワークを保護</figcaption>
             </figure>
             <p><strong>課題:</strong> クラウド利用やリモートワークの増加により、通信経路が多様化。データセンターだけでなく、各拠点や個人の端末にもセキュリティ対策が必要になり、管理が追いつかない。</p>
             <p><strong>解決策:</strong> Edgeルーター自体が、エンタープライズファイアウォール、侵入防御システム（IPS）、URLフィルタリングといった強力なセキュリティ機能を内蔵しています。さらに、Cisco Umbrellaなどのクラウドセキュリティサービスと連携することで、オフィスにいても、自宅にいても、すべての通信をSASEのアーキテクチャで保護し、一貫したセキュリティポリシーを適用できます。これにより、管理者の負担を増やすことなく、脅威の侵入経路をなくし、ネットワーク全体を安全に保ちます。</p>
             <p><strong>Before/Afterの概念:</strong> 従来のネットワークでは、セキュリティ対策がデータセンターに集中しがちで、インターネットブレイクアウトが増えるにつれて各拠点のセキュリティが手薄になる傾向がありました。SD-WANでは、セキュリティ機能がネットワークエッジに統合され、どこからでも一貫したセキュリティが提供されます。</p>
+            <p class="cta-link">
+                <a href="use-cases.html" rel="next">▶ ユースケース：ビジネス課題を解決する具体例</a>
+            </p>
         </section>
     </main>
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>&copy; 2025 Cisco SD-WAN 解説サイト</p>
             <p><a href="#">お問い合わせ</a> | <a href="#">サイトマップ</a> | <a href="#">プライバシーポリシー</a></p>
@@ -92,6 +95,18 @@
         document.getElementById('mobile-menu').addEventListener('click', function() {
             document.querySelector('.main-nav').classList.toggle('show');
         });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 現在のファイル名だけ抜き出す
+        const current = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.main-nav a').forEach(a => {
+          // href が現在のファイル名と一致したら active を付与
+          if (a.getAttribute('href') === current) {
+            a.classList.add('active');
+          }
+        });
+      });
     </script>
 </body>
 </html>

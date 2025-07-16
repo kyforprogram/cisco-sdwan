@@ -127,7 +127,7 @@
             </p>
         </section>
     </main>
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>&copy; 2025 Cisco SD-WAN 解説サイト</p>
             <p><a href="#">お問い合わせ</a> | <a href="#">サイトマップ</a> | <a href="#">プライバシーポリシー</a></p>
@@ -135,5 +135,17 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 現在のファイル名だけ抜き出す
+        const current = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.main-nav a').forEach(a => {
+          // href が現在のファイル名と一致したら active を付与
+          if (a.getAttribute('href') === current) {
+            a.classList.add('active');
+          }
+        });
+      });
+    </script>
 </body>
 </html>

@@ -88,9 +88,12 @@
                 <li><strong>予算:</strong> 各ライセンスティアのコスト</li>
             </ul>
             <p><strong>機能比較の概念:</strong> 各ライセンスティアで利用可能な機能を比較する際には、単に機能の有無だけでなく、その機能が提供する深度やパフォーマンスも考慮することが重要です。例えば、基本的なアプリケーション認識型ルーティングと高度なそれとでは、実現できる最適化のレベルが大きく異なります。詳細な機能比較表は、Ciscoの公式ドキュメントやパートナーから提供される資料で確認できます。</p>
+            <p class="cta-link">
+                <a href="glossary.html" rel="next">▶ 用語集</a>
+            </p>
         </section>
     </main>
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>&copy; 2025 Cisco SD-WAN 解説サイト</p>
             <p><a href="#">お問い合わせ</a> | <a href="#">サイトマップ</a> | <a href="#">プライバシーポリシー</a></p>
@@ -100,6 +103,18 @@
         document.getElementById('mobile-menu').addEventListener('click', function() {
             document.querySelector('.main-nav').classList.toggle('show');
         });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 現在のファイル名だけ抜き出す
+        const current = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.main-nav a').forEach(a => {
+          // href が現在のファイル名と一致したら active を付与
+          if (a.getAttribute('href') === current) {
+            a.classList.add('active');
+          }
+        });
+      });
     </script>
 </body>
 </html>

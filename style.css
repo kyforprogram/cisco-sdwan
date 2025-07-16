@@ -1,3 +1,9 @@
+/* どの要素も親幅を超えない安全ネット */
+img, video, svg, iframe, .mermaid {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
 /* 基本スタイル */
 body {
     font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
@@ -30,7 +36,8 @@ header {
 
 header h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    line-height: 1.2;
 }
 
 /* ナビゲーション */
@@ -60,6 +67,17 @@ nav a[aria-current="page"] {
     background: #00bceb;
 }
 
+/* キーボードフォーカス */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 3px solid #00bceb;
+    outline-offset: 2px;
+    border-radius: 2px; /* フォーカスリングを角丸に */
+}
+
 /* ハンバーガーメニューアイコン */
 .menu-toggle {
     display: none; /* デフォルトでは非表示 */
@@ -71,6 +89,15 @@ nav a[aria-current="page"] {
     transform: translateY(-50%);
     color: #fff;
     z-index: 1000;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 5px auto;
+    transition: .3s;
 }
 
 /* メインコンテンツ */
@@ -104,7 +131,13 @@ h2 {
     background: #f0f8ff;
     padding: 1.5rem;
     border-radius: 8px;
-    border-left: 5px solid #00bceb;
+    border-left: 5px solid var(--cisco-light-blue);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .grid-item h3 a {
@@ -155,7 +188,7 @@ figcaption {
 .breadcrumbs li + li::before {
     content: ">\00a0"; /* > と半角スペース */
     padding: 0 5px;
-    color: #666;
+    color: #595959;
 }
 
 .breadcrumbs a {
@@ -164,7 +197,7 @@ figcaption {
 }
 
 .breadcrumbs span {
-    color: #666;
+    color: #595959;
 }
 
 /* CTAリンク */
@@ -253,6 +286,7 @@ footer {
     nav .main-nav {
         display: none; /* デフォルトで非表示 */
         flex-direction: column;
+        flex-wrap: wrap;
         width: 100%;
         position: absolute;
         top: 100%;
@@ -284,3 +318,32 @@ footer {
         padding: 1.5rem;
     }
 }
+
+/*
+ *  STYLE GUIDE
+ */
+
+/*
+Colors:
+  - Primary: #005a9e (Cisco Blue)
+  - Secondary: #00bceb (Cisco Light Blue)
+  - Accent: #ff6a00 (Orange - for call to actions, alerts)
+  - Text: #333 (Dark Gray)
+  - Background: #f9f9f9 (Light Gray)
+  - White: #fff
+
+Typography:
+  - Font Family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif
+  - Base Font Size: 16px
+  - Line Height: 1.8
+  - Headings:
+    - h1: 2.5rem, #005a9e
+    - h2: 1.8rem, #005a9e
+    - h3: 1.5rem, #333
+
+Layout:
+  - Max-width: 960px
+  - Padding: 15px
+  - Margin: 2rem for sections
+
+*/

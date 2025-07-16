@@ -70,7 +70,7 @@
             <p>こうした複雑な課題を解決するために登場したのが、<strong>SD-WAN（Software-Defined Wide Area Network）</strong>です。</p>
             <p>SD-WANは、「ソフトウェア定義」の技術を用いて、物理的なネットワーク（回線）の上に仮想的なネットワークを構築し、アプリケーションごとや通信の状況に応じて、最適な経路を動的に選択します。これにより、高価なMPLSと安価なインターネット回線を賢く使い分け、通信品質を維持しながらコストを削減し、運用をシンプルにすることが可能になります。</p>
             <figure>
-                <img src="https://www.cisco.com/content/dam/cisco-cdc/site/us/en/images/networking/Routing_Listing_Rendering_758x484_v2.png" alt="SD-WAN Cisco製品">
+                <img src="https://www.cisco.com/content/dam/cisco-cdc/site/us/en/images/networking/Routing_Listing_Rendering_758x484_v2.png" alt="Cisco SD-WAN製品のイメージ">
                 <figcaption>SD-WAN Cisco製品</figcaption>
             </figure>
             <p>次のページでは、数あるSD-WANソリューションの中でも、なぜ「Cisco SD-WAN」が選ばれるのか、その概要と特徴について詳しく見ていきましょう。</p>
@@ -79,7 +79,7 @@
             </p>            
         </section>
     </main>
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>&copy; 2025 Cisco SD-WAN 解説サイト</p>
             <p><a href="#">お問い合わせ</a> | <a href="#">サイトマップ</a> | <a href="#">プライバシーポリシー</a></p>
@@ -89,6 +89,18 @@
         document.getElementById('mobile-menu').addEventListener('click', function() {
             document.querySelector('.main-nav').classList.toggle('show');
         });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 現在のファイル名だけ抜き出す
+        const current = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.main-nav a').forEach(a => {
+          // href が現在のファイル名と一致したら active を付与
+          if (a.getAttribute('href') === current) {
+            a.classList.add('active');
+          }
+        });
+      });
     </script>
 </body>
 </html>

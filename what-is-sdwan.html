@@ -47,7 +47,7 @@
             <h3>Viptelaの買収とCisco SD-WANの誕生</h3>
             <p>Cisco SD-WANの物語は、2017年にCiscoがSD-WANのパイオニアであったViptela社を買収したことから始まります。Viptelaは、その先進的なアーキテクチャと強力なルーティング機能で高く評価されていました。Ciscoはこの優れた技術を取り込み、自社の広範なネットワーク製品群と統合することで、エンタープライズ向けの強力なSD-WANソリューションを確立しました。これが現在の「Cisco SD-WAN（旧Viptelaソリューション）」です。</p>
             <figure>
-                <img src="https://ferret-one.akamaized.net/images/5c945ea1979afc3c31000bf7/normal.jpeg" alt="Cisco SD-WAN" loading="lazy">
+                <img src="https://ferret-one.akamaized.net/images/5c945ea1979afc3c31000bf7/normal.jpeg" alt="Cisco SD-WANの概念図" loading="lazy">
                 <figcaption>Cisco SD-WAN</figcaption>
             </figure>
             <p>このため、Cisco SD-WANのアーキテクチャやコンポーネントの名称（vManage, vSmartなど）には、Viptelaの思想が色濃く反映されています。</p>
@@ -60,14 +60,6 @@
                 <li><strong>CASB (Cloud Access Security Broker):</strong> クラウドアプリケーションの利用状況を可視化・制御し、データセキュリティを強化します。</li>
                 <li><strong>FWaaS (Firewall as a Service):</strong> クラウドベースで提供されるファイアウォール機能で、どこからでも一貫したセキュリティポリシーを適用します。</li>
                 <li><strong>ZTNA (Zero Trust Network Access):</strong> ユーザーやデバイスがネットワークにアクセスする際に、常に認証・認可を行うことで、信頼しないアクセスを排除します。</li>
-            </ul>
-            <h4>SASEを構成する主要な要素</h4>
-            <ul>
-                <li><strong>SWG (Secure Web Gateway):</strong> 不正なWebサイトへのアクセスをブロックし、Webトラフィックを保護します。</li>
-                <li><strong>CASB (Cloud Access Security Broker):</strong> クラウドアプリケーションの利用状況を可視化・制御し、データセキュリティを強化します。</li>
-                <li><strong>FWaaS (Firewall as a Service):</strong> クラウドベースで提供されるファイアウォール機能で、どこからでも一貫したセキュリティポリシーを適用します。</li>
-                <li><strong>ZTNA (Zero Trust Network Access):</strong> ユーザーやデバイスがネットワークにアクセスする際に、常に認証・認可を行うことで、信頼しないアクセスを排除します。</li>
-                <!-- 必要に応じてアイコンを追加 -->
             </ul>
             <figure>
                 <img src="https://www.sojitz-ti.com/focusarea/column/uploads/about_sase_03.png" alt="SASE Architecture" loading="lazy">
@@ -95,7 +87,7 @@
             </p>
         </section>
     </main>
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>&copy; 2025 Cisco SD-WAN 解説サイト</p>
             <p><a href="#">お問い合わせ</a> | <a href="#">サイトマップ</a> | <a href="#">プライバシーポリシー</a></p>
@@ -105,6 +97,18 @@
         document.getElementById('mobile-menu').addEventListener('click', function() {
             document.querySelector('.main-nav').classList.toggle('show');
         });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // 現在のファイル名だけ抜き出す
+        const current = location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.main-nav a').forEach(a => {
+          // href が現在のファイル名と一致したら active を付与
+          if (a.getAttribute('href') === current) {
+            a.classList.add('active');
+          }
+        });
+      });
     </script>
 </body>
 </html>
